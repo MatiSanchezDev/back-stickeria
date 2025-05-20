@@ -1,2 +1,2 @@
 # Back-stickeria
-Backend para empresa "Stickeria" - manejo de pedidos - ganancias
+Backend para empresa "Stickeria" - Gestión de pedidos - Control de ingresos
