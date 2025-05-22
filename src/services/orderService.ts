@@ -1,17 +1,17 @@
 import { supabase } from "../config/supabaseClient";
-import { Sticker } from "../interfaces/sticker.interface";
-import { StickerSchema } from "../models/item";
+import { Order } from "../interfaces/order.interface";
+import { OrderSchema } from "../models/order";
 
-const getItemsServices = async () => {
-  const { data, error } = await supabase.from("stickers").select("*");
+const getOrdersServices = async () => {
+  const { data, error } = await supabase.from("orders").select("*");
 
   if (error) throw new Error(error.message);
   return data;
 };
 
-const getItemServices = async (id: number) => {
+const getOrderServices = async (id: number) => {
   const { data, error } = await supabase
-    .from("stickers")
+    .from("orders")
     .select("*")
     .eq("id", id)
     .single();
@@ -20,20 +20,20 @@ const getItemServices = async (id: number) => {
   return data;
 };
 
-const createItemServices = async (sticker: { name: string; price: number }) => {
-  const validated = StickerSchema.parse(sticker);
+const createOrderServices = async (order: Order) => {
+  const validated = OrderSchema.parse(order);
   const { data, error } = await supabase
-    .from("stickers")
+    .from("orders")
     .insert([validated])
     .select(); // Para retornar el item agreado.;
   if (error) throw new Error(error.message);
   return data;
 };
 
-const updateItemServices = async (id: number, update: Partial<Sticker>) => {
-  const validated = StickerSchema.parse(update);
+const updateOrderServices = async (id: number, update: Partial<Order>) => {
+  const validated = OrderSchema.parse(update);
   const { data, error } = await supabase
-    .from("stickers")
+    .from("orders")
     .update(validated)
     .eq("id", id)
     .select();
@@ -41,9 +41,9 @@ const updateItemServices = async (id: number, update: Partial<Sticker>) => {
   return data;
 };
 
-const deleteItemServices = async (id: number) => {
+const deleteOrderServices = async (id: number) => {
   const { data, error } = await supabase
-    .from("stickers")
+    .from("orders")
     .delete()
     .eq("id", id)
     .select();
@@ -52,9 +52,9 @@ const deleteItemServices = async (id: number) => {
 };
 
 export {
-  getItemsServices,
-  getItemServices,
-  createItemServices,
-  updateItemServices,
-  deleteItemServices,
+  getOrdersServices,
+  getOrderServices,
+  createOrderServices,
+  updateOrderServices,
+  deleteOrderServices,
 };

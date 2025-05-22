@@ -11,7 +11,11 @@ import {
 const getItem = async (req: Request, res: Response) => {
   try {
     const response = await getItemServices(Number(req.params.id));
-    res.json(response);
+    res.json({
+      success: true,
+      message: "Sticker obtenido con éxito.",
+      data: response,
+    });
   } catch (e) {
     handleHttp(res, "ERROR_GET_ITEM");
   }
@@ -19,9 +23,12 @@ const getItem = async (req: Request, res: Response) => {
 
 const getItems = async (req: Request, res: Response) => {
   try {
-    console.log("Entre en getItems");
     const response = await getItemsServices();
-    res.json(response);
+    res.json({
+      success: true,
+      message: "Stickers obtenidos con éxito.",
+      data: response,
+    });
   } catch (e) {
     handleHttp(res, "ERROR_GET_ITEMS");
   }
@@ -30,7 +37,11 @@ const getItems = async (req: Request, res: Response) => {
 const postItem = async ({ body }: Request, res: Response) => {
   try {
     const response = await createItemServices(body);
-    res.json(response);
+    res.json({
+      success: true,
+      message: "Sticker creado con éxito.",
+      data: response,
+    });
   } catch (e) {
     handleHttp(res, "ERROR_POST_ITEM", e);
   }
@@ -39,7 +50,11 @@ const postItem = async ({ body }: Request, res: Response) => {
 const updateItem = async (req: Request, res: Response) => {
   try {
     const response = await updateItemServices(Number(req.params.id), req.body);
-    res.json(response);
+    res.json({
+      success: true,
+      message: "Sticker modificado con éxito.",
+      data: response,
+    });
   } catch (e) {
     handleHttp(res, "ERROR_UPDATE_ITEM", e);
   }
@@ -48,7 +63,11 @@ const updateItem = async (req: Request, res: Response) => {
 const deteleItem = async (req: Request, res: Response) => {
   try {
     const response = await deleteItemServices(Number(req.params.id));
-    res.json({ "sticker: ": response });
+    res.json({
+      success: true,
+      message: "Sticker eliminado con éxito.",
+      data: response,
+    });
   } catch (e) {
     handleHttp(res, "ERROR_DELETE_ITEM");
   }
