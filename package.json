@@ -1,11 +1,11 @@
 {
   "name": "stickeria-back",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "ts-node src/app.ts",
+    "dev": "nodemon ./src/app.ts",
     "build": "tsc",
-    "start": "node dist/app.js"
+    "start": "node ./dist/app.js"
   },
   "keywords": [],
   "author": "",
