@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "nodemon ./src/app.ts",
     "build": "tsc",
-    "start": "node ./dist/app.js",
-    "prestart": "npm run build"
+    "start": "node ./dist/app.js"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +16,7 @@
     "cors": "2.8.5",
     "dotenv": "16.5.0",
     "express": "5.1.0",
-    "mercadopago": "2.7.0",
+    "mercadopago": "^2.7.0",
     "zod": "3.24.4"
   },
   "devDependencies": {
@@ -25,13 +24,6 @@
     "@types/dotenv": "8.2.3",
     "@types/express": "5.0.1",
     "@types/mongoose": "5.11.97",
-    "@types/multer": "1.4.12",
-    "@types/node": "^22.15.29",
-    "ts-node": "10.9.2",
-    "ts-node-dev": "2.0.0",
-    "typescript": "5.8.3"
-  },
-  "engines": {
-    "node": "18.x"
+    "@types/multer": "1.4.12"
   }
 }
