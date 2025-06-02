@@ -7,6 +7,6 @@
     "strict": true,
     "skipLibCheck": true,
     "outDir": "./dist",
-    "types": ["node"]  // esta línea está bien SI tenés @types/node instalado
+    "types": ["node"]
   }
 }
