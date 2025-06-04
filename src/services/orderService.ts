@@ -2,11 +2,26 @@ import { supabase } from "../config/supabaseClient";
 import { Order } from "../interfaces/order.interface";
 import { OrderSchema } from "../models/order";
 
-const getOrdersServices = async () => {
-  const { data, error } = await supabase.from("orders").select("*");
+const getOrdersServices = async (page: number, limit: number) => {
+  const from = (page - 1) * limit;
+  const to = from + limit - 1;
+
+  const { data, error, count } = await supabase
+    .from("orders")
+    .select("*", { count: "exact" })
+    .order("created_at", { ascending: false })
+    .range(from, to);
 
   if (error) throw new Error(error.message);
-  return data;
+
+  return {
+    success: true,
+    data,
+    page,
+    limit,
+    total: count || 0,
+    totalPages: Math.ceil((count || 0) / limit),
+  };
 };
 
 const getOrderServices = async (id: number) => {

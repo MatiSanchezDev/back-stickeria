@@ -23,12 +23,12 @@ const getItem = async (req: Request, res: Response) => {
 
 const getItems = async (req: Request, res: Response) => {
   try {
-    const response = await getItemsServices();
-    res.json({
-      success: true,
-      message: "Stickers obtenidos con éxito.",
-      data: response,
-    });
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 9;
+
+    const result = await getItemsServices(page, limit);
+
+    res.json(result);
   } catch (e) {
     handleHttp(res, "ERROR_GET_ITEMS");
   }

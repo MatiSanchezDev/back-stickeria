@@ -23,12 +23,12 @@ const getOrder = async (req: Request, res: Response) => {
 
 const getOrders = async (req: Request, res: Response) => {
   try {
-    const response = await getOrdersServices();
-    res.json({
-      success: true,
-      message: "Se obtuvieron todas las ordenes con éxito.",
-      data: response,
-    });
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+
+    const result = await getOrdersServices(page, limit);
+
+    res.json(result);
   } catch (e) {
     handleHttp(res, "ERROR_GET_ORDERS");
   }

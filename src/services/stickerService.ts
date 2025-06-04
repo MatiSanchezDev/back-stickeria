@@ -2,11 +2,26 @@ import { supabase } from "../config/supabaseClient";
 import { Sticker } from "../interfaces/sticker.interface";
 import { StickerSchema } from "../models/item";
 
-const getItemsServices = async () => {
-  const { data, error } = await supabase.from("stickers").select("*");
+const getItemsServices = async (page: number, limit: number) => {
+  const from = (page - 1) * limit;
+  const to = from + limit - 1;
+
+  const { data, error, count } = await supabase
+    .from("stickers")
+    .select("*", { count: "exact" })
+    .order("created_at", { ascending: false })
+    .range(from, to);
 
   if (error) throw new Error(error.message);
-  return data;
+
+  return {
+    success: true,
+    data,
+    page,
+    limit,
+    total: count || 0,
+    totalPages: Math.ceil((count || 0) / limit),
+  };
 };
 
 const getItemServices = async (id: number) => {
