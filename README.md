@@ -76,30 +76,30 @@ Este proyecto constituye el backend de la aplicación [**front-Stickeria**](http
 >[!TIP]
 > Una vez iniciado el servidor, puedes interactuar con la API mediante herramientas como Postman o cURL. Las rutas disponibles incluyen:
 
-### **Login**
-POST /login: Logearte con un usuario creado de forma manual en Supabase.
+### 🔒**Login**
+   POST /login: Logearte con un usuario creado de forma manual en Supabase.
 
-### **Obtener Stickers**
-GET /item?page=1&limit=6: Obtener todos los stickers y ademas podes paginarlos usando query params.
+### 🦄**Obtener Stickers**
+   GET /item?page=1&limit=6: Obtener todos los stickers y ademas podes paginarlos usando query params.
 
-GET /item/:id: Obtener un sticker específico.
+   GET /item/:id: Obtener un sticker específico.
 
-POST /item: Crear nuevo pedido.
+   POST /item: Crear nuevo pedido.
 
-PUT /item/:id: Actualizar un sticker existente.
+   PUT /item/:id: Actualizar un sticker existente.
 
-DELETE /item/:id: Eliminar un sticker.
+   DELETE /item/:id: Eliminar un sticker.
 
-### **Obtener Pedidos**
-GET /item?page=1&limit=6: Obtener todos los pedidos y ademas podes paginarlos usando query params.
+### 📝**Obtener Pedidos**
+   GET /item?page=1&limit=6: Obtener todos los pedidos y ademas podes paginarlos usando query params.
 
-GET /order/:id: Obtener un pedido específico.
+   GET /order/:id: Obtener un pedido específico.
 
-PUT /order/:id: Actualizar un pedido existente.
+   PUT /order/:id: Actualizar un pedido existente.
 
-DELETE /order/:id: Eliminar un pedido.
+   DELETE /order/:id: Eliminar un pedido.
 
-POST /order: Crear nuevo pedido.
+   POST /order: Crear nuevo pedido.
 
 ---
 
