@@ -49,7 +49,7 @@ Este proyecto constituye el backend de la aplicación [**front-Stickeria**](http
    npm install
    ```
 >[!IMPORTANT]
-> Aplicacion creada con [Supabase](https://supabase.com/), debe crear su cuenta logearse e ingresar los datos generados en la variable .env explicada con detalle abajo.
+> Aplicacion creada con [Supabase](https://supabase.com/), debe crear su cuenta, logearse, crear un proyecto e ingresar los datos generados en la variable .env explicada con detalle abajo.
 3. Configurar variables de entorno:
    > Crear un archivo .env en la raíz del proyecto y añadir las siguientes variables:
    ```bash
@@ -65,22 +65,39 @@ Este proyecto constituye el backend de la aplicación [**front-Stickeria**](http
 ---
 
 ## <a name="uso"></a>🚀Uso
->[!IMPORTANT]
-> Para que funcione tener en cuenta lo siguiente:
+>[!TIP]
+> Una vez iniciado el servidor, puedes interactuar con la API mediante herramientas como Postman o cURL. Las rutas disponibles incluyen:
 
-1. Debe clonar tambien el repositorio de [Back-Stickeria](https://github.com/MatiSanchezDev/back-stickeria) y seguir los pasos del README.md de dicho repositorio.
+> **Login**
+POST /login: Logearte con un usuario creado de forma manual en Supabase.
 
-2. En el front-stickeria un archivo en la raiz del proyecto llamado ".env" y agregar lo siguiente:
+> **Obtener Stickers**
+GET /item?page=1&limit=6: Obtener todos los stickers y ademas podes paginarlos usando query params.
 
-```bash
-   NEXT_PUBLIC_API_BASE=http://localhost:3002 (Puerto en el que esté corriendo tu backend)
-   ```
-3. Probar la app.
+GET /item/:id: Obtener un sticker específico.
+
+POST /item: Crear nuevo pedido.
+
+PUT /item/:id: Actualizar un sticker existente.
+
+DELETE /item/:id: Eliminar un sticker.
+
+> **Obtener Pedidos**
+GET /item?page=1&limit=6: Obtener todos los pedidos y ademas podes paginarlos usando query params.
+
+GET /order/:id: Obtener un pedido específico.
+
+PUT /order/:id: Actualizar un pedido existente.
+
+DELETE /order/:id: Eliminar un pedido.
+
+POST /order: Crear nuevo pedido.
 
 ---
 
 ## <a name="to-do--mejoras-futuras"></a>🛠️ To-Do / Mejoras Futuras
-* Ruta para mostrar los ingresos de cada mes.
+* Implementar Pruebas Unitarias: Añadir pruebas con Jest para asegurar la estabilidad del código.
+* Documentar la API: Utilizar Swagger para generar documentación interactiva.
 
 ---
 
