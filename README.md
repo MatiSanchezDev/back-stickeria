@@ -84,7 +84,7 @@ Este proyecto constituye el backend de la aplicación [**front-Stickeria**](http
 
    * GET /item/:id: Obtener un sticker específico.
 
-   * POST /item: Crear nuevo pedido.
+   * POST /item: Crear nuevo sticker.
 
    * PUT /item/:id: Actualizar un sticker existente.
 
