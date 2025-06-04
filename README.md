@@ -66,7 +66,7 @@ Este proyecto constituye el backend de la aplicación [**front-Stickeria**](http
 
 ## <a name="uso"></a>🚀Uso
 >[!CAUTION]
-> Debe generar un usuario autenticado en supabase:
+> Debe generar un usuario autenticado en supabase para realizar todas las consultas a la api:
 
    1. Crear/ingresar al proyecto.
    2. Buscar el apartado Authentication
