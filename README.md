@@ -65,13 +65,21 @@ Este proyecto constituye el backend de la aplicación [**front-Stickeria**](http
 ---
 
 ## <a name="uso"></a>🚀Uso
+>[!CAUTION]
+> Debe generar un usuario autenticado en supabase:
+
+   1. Crear/ingresar al proyecto.
+   2. Buscar el apartado Authentication
+   3. Crear un nuevo usuario en el boton "add user" de la parte derecha.
+   4. Usar ese usuario y contraseña para logearse con la api e usar el token generado para todas las demas consultas.
+
 >[!TIP]
 > Una vez iniciado el servidor, puedes interactuar con la API mediante herramientas como Postman o cURL. Las rutas disponibles incluyen:
 
-> **Login**
+### **Login**
 POST /login: Logearte con un usuario creado de forma manual en Supabase.
 
-> **Obtener Stickers**
+### **Obtener Stickers**
 GET /item?page=1&limit=6: Obtener todos los stickers y ademas podes paginarlos usando query params.
 
 GET /item/:id: Obtener un sticker específico.
@@ -82,7 +90,7 @@ PUT /item/:id: Actualizar un sticker existente.
 
 DELETE /item/:id: Eliminar un sticker.
 
-> **Obtener Pedidos**
+### **Obtener Pedidos**
 GET /item?page=1&limit=6: Obtener todos los pedidos y ademas podes paginarlos usando query params.
 
 GET /order/:id: Obtener un pedido específico.
