@@ -9,7 +9,7 @@ const getItemsServices = async (page: number, limit: number) => {
   const { data, error, count } = await supabase
     .from("stickers")
     .select("*", { count: "exact" })
-    .order("created_at", { ascending: false })
+    .order("created_at", { ascending: true })
     .range(from, to);
 
   if (error) throw new Error(error.message);
